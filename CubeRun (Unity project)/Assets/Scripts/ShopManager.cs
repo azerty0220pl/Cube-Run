@@ -32,14 +32,18 @@ public class ShopManager : MonoBehaviour
     public Material world3Cylinder2;
     public Material world4Cylinder1;
     public Material world4Cylinder2;
+    public Material world5Cylinder1;
+    public Material world5Cylinder2;
     public Material matCloud1;
     public Material matCloud2;
     public Material matCloud3;
     public Material matCloud4;
+    public Material matCloud5;
     public Material sky1;
     public Material sky2;
     public Material sky3;
     public Material sky4;
+    public Material sky5;
 
     public GameObject skin1;
     public GameObject skin2;
@@ -53,6 +57,10 @@ public class ShopManager : MonoBehaviour
     public GameObject skin10;
     public GameObject skin11;
     public GameObject skin12;
+    public GameObject skin13;
+    public GameObject skin14;
+    public GameObject skin15;
+    public GameObject skin16;
 
     public GameObject noMoney;
 
@@ -67,6 +75,10 @@ public class ShopManager : MonoBehaviour
     int prize10;
     int prize11;
     int prize12;
+    int prize13;
+    int prize14;
+    int prize15;
+    int prize16;
 
     int skinState;
     int maxSkin;
@@ -76,22 +88,35 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
-        prize2 = 40;
-        prize3 = 60;
-        prize4 = 80;
-        prize5 = 100;
-        prize6 = 160;
-        prize7 = 240;
-        prize8 = 300;
-        prize9 = 400;
-        prize10 = 500;
-        prize11 = 600;
-        prize12 = 750;
+        prize2 = 50;
+        prize3 = 100;
+        prize4 = 150;
+        prize5 = 300;
+        prize6 = 400;
+        prize7 = 500;
+        prize8 = 600;
+        prize9 = 700;
+        prize10 = 1000;
+        prize11 = 1250;
+        prize12 = 2000;
+        prize13 = 4000;
+        prize14 = 6000;
+        prize15 = 10000;
+        prize16 = 100000;
 
         skinState = PlayerPrefs.GetInt("skinState");
         maxSkin = PlayerPrefs.GetInt("maxSkin");
 
         LoadSkin();
+    }
+
+    public void reset()
+    {
+        PlayerPrefs.SetInt("skinState", 0);
+        PlayerPrefs.SetInt("maxSkin", 0);
+        PlayerPrefs.SetInt("coins", 0);
+        PlayerPrefs.SetInt("premium", 0);
+        Start();
     }
 
     public void moveLeft()
@@ -172,7 +197,7 @@ public class ShopManager : MonoBehaviour
             {
                 noMoney.SetActive(true);
                 moneyText = noMoneyText.GetComponent<Text>();
-                left = prize3 - coins;
+                left = prize4 - coins;
                 moneyText.text = "You need " + left + " coins more.";
             }
         }
@@ -319,6 +344,78 @@ public class ShopManager : MonoBehaviour
                 moneyText.text = "You need " + left + " coins more.";
             }
         }
+        else if (maxSkin == 11)
+        {
+            if (coins >= prize13 || PlayerPrefs.GetInt("premium") == 1)
+            {
+                maxSkin = maxSkin + 1;
+                PlayerPrefs.SetInt("maxSkin", maxSkin);
+                moveRight();
+                coins = coins - prize13;
+                PlayerPrefs.SetInt("coins", coins);
+            }
+            else
+            {
+                noMoney.SetActive(true);
+                moneyText = noMoneyText.GetComponent<Text>();
+                left = prize13 - coins;
+                moneyText.text = "You need " + left + " coins more.";
+            }
+        }
+        else if (maxSkin == 12)
+        {
+            if (coins >= prize14 || PlayerPrefs.GetInt("premium") == 1)
+            {
+                maxSkin = maxSkin + 1;
+                PlayerPrefs.SetInt("maxSkin", maxSkin);
+                moveRight();
+                coins = coins - prize14;
+                PlayerPrefs.SetInt("coins", coins);
+            }
+            else
+            {
+                noMoney.SetActive(true);
+                moneyText = noMoneyText.GetComponent<Text>();
+                left = prize14 - coins;
+                moneyText.text = "You need " + left + " coins more.";
+            }
+        }
+        else if (maxSkin == 13)
+        {
+            if (coins >= prize15 || PlayerPrefs.GetInt("premium") == 1)
+            {
+                maxSkin = maxSkin + 1;
+                PlayerPrefs.SetInt("maxSkin", maxSkin);
+                moveRight();
+                coins = coins - prize15;
+                PlayerPrefs.SetInt("coins", coins);
+            }
+            else
+            {
+                noMoney.SetActive(true);
+                moneyText = noMoneyText.GetComponent<Text>();
+                left = prize15 - coins;
+                moneyText.text = "You need " + left + " coins more.";
+            }
+        }
+        else if (maxSkin == 14)
+        {
+            if (coins >= prize16 || PlayerPrefs.GetInt("premium") == 1)
+            {
+                maxSkin = maxSkin + 1;
+                PlayerPrefs.SetInt("maxSkin", maxSkin);
+                moveRight();
+                coins = coins - prize16;
+                PlayerPrefs.SetInt("coins", coins);
+            }
+            else
+            {
+                noMoney.SetActive(true);
+                moneyText = noMoneyText.GetComponent<Text>();
+                left = prize16 - coins;
+                moneyText.text = "You need " + left + " coins more.";
+            }
+        }
     }
 
     public void LoadSkin()
@@ -337,14 +434,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(false);
             skin11.SetActive(false);
             skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
             speed = 0.75f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 200f;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
             PlayerPrefs.SetInt("easy", 50);
-            PlayerPrefs.SetInt("medium", 80);
-            PlayerPrefs.SetInt("divider", 30);
+            PlayerPrefs.SetInt("medium", 90);
+            PlayerPrefs.SetInt("divider", 100);
 
             sky.GetComponent<Renderer>().material = sky1;
             cloud1.GetComponent<Renderer>().material = matCloud1;
@@ -374,14 +475,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(false);
             skin11.SetActive(false);
             skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
             speed = 0.8f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 200;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
-            PlayerPrefs.SetInt("easy", 40);
-            PlayerPrefs.SetInt("medium", 80);
-            PlayerPrefs.SetInt("divider", 30);
+            PlayerPrefs.SetInt("easy", 50);
+            PlayerPrefs.SetInt("medium", 85);
+            PlayerPrefs.SetInt("divider", 90);
 
             sky.GetComponent<Renderer>().material = sky1;
             cloud1.GetComponent<Renderer>().material = matCloud1;
@@ -411,14 +516,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(false);
             skin11.SetActive(false);
             skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
             speed = 0.9f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 250;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
             PlayerPrefs.SetInt("easy", 45);
-            PlayerPrefs.SetInt("medium", 70);
-            PlayerPrefs.SetInt("divider", 25);
+            PlayerPrefs.SetInt("medium", 85);
+            PlayerPrefs.SetInt("divider", 80);
 
             sky.GetComponent<Renderer>().material = sky1;
             cloud1.GetComponent<Renderer>().material = matCloud1;
@@ -448,14 +557,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(false);
             skin11.SetActive(false);
             skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
             speed = 1f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 300;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
             PlayerPrefs.SetInt("easy", 40);
-            PlayerPrefs.SetInt("medium", 70);
-            PlayerPrefs.SetInt("divider", 25);
+            PlayerPrefs.SetInt("medium", 80);
+            PlayerPrefs.SetInt("divider", 75);
 
             sky.GetComponent<Renderer>().material = sky2;
             cloud1.GetComponent<Renderer>().material = matCloud2;
@@ -485,14 +598,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(false);
             skin11.SetActive(false);
             skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
             speed = 1.1f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 350;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
-            PlayerPrefs.SetInt("easy", 35);
-            PlayerPrefs.SetInt("medium", 70);
-            PlayerPrefs.SetInt("divider", 20);
+            PlayerPrefs.SetInt("easy", 40);
+            PlayerPrefs.SetInt("medium", 75);
+            PlayerPrefs.SetInt("divider", 60);
 
             sky.GetComponent<Renderer>().material = sky2;
             cloud1.GetComponent<Renderer>().material = matCloud2;
@@ -522,14 +639,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(false);
             skin11.SetActive(false);
             skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
             speed = 1.2f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 400;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
-            PlayerPrefs.SetInt("easy", 33);
-            PlayerPrefs.SetInt("medium", 65);
-            PlayerPrefs.SetInt("divider", 15);
+            PlayerPrefs.SetInt("easy", 35);
+            PlayerPrefs.SetInt("medium", 70);
+            PlayerPrefs.SetInt("divider", 55);
 
             sky.GetComponent<Renderer>().material = sky2;
             cloud1.GetComponent<Renderer>().material = matCloud2;
@@ -559,14 +680,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(false);
             skin11.SetActive(false);
             skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
             speed = 1.3f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 450;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
-            PlayerPrefs.SetInt("easy", 20);
-            PlayerPrefs.SetInt("medium", 60);
-            PlayerPrefs.SetInt("divider", 10);
+            PlayerPrefs.SetInt("easy", 35);
+            PlayerPrefs.SetInt("medium", 65);
+            PlayerPrefs.SetInt("divider", 50);
 
             sky.GetComponent<Renderer>().material = sky3;
             cloud1.GetComponent<Renderer>().material = matCloud3;
@@ -597,14 +722,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(false);
             skin11.SetActive(false);
             skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
             speed = 1.4f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 500;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
-            PlayerPrefs.SetInt("easy", 34);
-            PlayerPrefs.SetInt("medium", 66);
-            PlayerPrefs.SetInt("divider", 10);
+            PlayerPrefs.SetInt("easy", 35);
+            PlayerPrefs.SetInt("medium", 65);
+            PlayerPrefs.SetInt("divider", 45);
 
             sky.GetComponent<Renderer>().material = sky3;
             cloud1.GetComponent<Renderer>().material = matCloud3;
@@ -635,14 +764,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(false);
             skin11.SetActive(false);
             skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
             speed = 1.5f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 550;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
             PlayerPrefs.SetInt("easy", 33);
-            PlayerPrefs.SetInt("medium", 67);
-            PlayerPrefs.SetInt("divider", 5);
+            PlayerPrefs.SetInt("medium", 66);
+            PlayerPrefs.SetInt("divider", 40);
 
             sky.GetComponent<Renderer>().material = sky3;
             cloud1.GetComponent<Renderer>().material = matCloud3;
@@ -672,14 +805,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(true);
             skin11.SetActive(false);
             skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
             speed = 1.6f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 600;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
-            PlayerPrefs.SetInt("easy", 33);
-            PlayerPrefs.SetInt("medium", 66);
-            PlayerPrefs.SetInt("divider", 5);
+            PlayerPrefs.SetInt("easy", 30);
+            PlayerPrefs.SetInt("medium", 80);
+            PlayerPrefs.SetInt("divider", 35);
 
             sky.GetComponent<Renderer>().material = sky4;
             cloud1.GetComponent<Renderer>().material = matCloud4;
@@ -710,14 +847,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(false);
             skin11.SetActive(true);
             skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
             speed = 1.75f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 650;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
-            PlayerPrefs.SetInt("easy", 30);
-            PlayerPrefs.SetInt("medium", 60);
-            PlayerPrefs.SetInt("divider", 5);
+            PlayerPrefs.SetInt("easy", 20);
+            PlayerPrefs.SetInt("medium", 90);
+            PlayerPrefs.SetInt("divider", 30);
 
             sky.GetComponent<Renderer>().material = sky4;
             cloud1.GetComponent<Renderer>().material = matCloud4;
@@ -747,14 +888,18 @@ public class ShopManager : MonoBehaviour
             skin10.SetActive(false);
             skin11.SetActive(false);
             skin12.SetActive(true);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
-            speed = 2f;
+            speed = 1.8f;
             PlayerPrefs.SetFloat("speed", speed);
             maxPostemp = 700;
             PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
-            PlayerPrefs.SetInt("easy", 25);
-            PlayerPrefs.SetInt("medium", 50);
-            PlayerPrefs.SetInt("divider", 1);
+            PlayerPrefs.SetInt("easy", 20);
+            PlayerPrefs.SetInt("medium", 60);
+            PlayerPrefs.SetInt("divider", 25);
 
             sky.GetComponent<Renderer>().material = sky4;
             cloud1.GetComponent<Renderer>().material = matCloud4;
@@ -769,8 +914,175 @@ public class ShopManager : MonoBehaviour
             cylinder4.GetComponent<Renderer>().material = world4Cylinder2;
             cylinder5.GetComponent<Renderer>().material = world4Cylinder1;
             cylinder6.GetComponent<Renderer>().material = world4Cylinder2;
+        }
+        else if (skinState == 12)
+        {
+            skin1.SetActive(false);
+            skin2.SetActive(false);
+            skin3.SetActive(false);
+            skin4.SetActive(false);
+            skin5.SetActive(false);
+            skin6.SetActive(false);
+            skin7.SetActive(false);
+            skin8.SetActive(false);
+            skin9.SetActive(false);
+            skin10.SetActive(false);
+            skin11.SetActive(false);
+            skin12.SetActive(false);
+            skin13.SetActive(true);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
 
+            speed = 2f;
+            PlayerPrefs.SetFloat("speed", speed);
+            maxPostemp = 700;
+            PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
+            PlayerPrefs.SetInt("easy", 15);
+            PlayerPrefs.SetInt("medium", 50);
+            PlayerPrefs.SetInt("divider", 20);
 
+            sky.GetComponent<Renderer>().material = sky5;
+            cloud1.GetComponent<Renderer>().material = matCloud5;
+            cloud2.GetComponent<Renderer>().material = matCloud5;
+            cloud3.GetComponent<Renderer>().material = matCloud5;
+            cloud4.GetComponent<Renderer>().material = matCloud5;
+            cloud5.GetComponent<Renderer>().material = matCloud5;
+            cloud6.GetComponent<Renderer>().material = matCloud5;
+            cylinder1.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder2.GetComponent<Renderer>().material = world5Cylinder2;
+            cylinder3.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder4.GetComponent<Renderer>().material = world5Cylinder2;
+            cylinder5.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder6.GetComponent<Renderer>().material = world5Cylinder2;
+        }
+        else if (skinState == 13)
+        {
+            skin1.SetActive(false);
+            skin2.SetActive(false);
+            skin3.SetActive(false);
+            skin4.SetActive(false);
+            skin5.SetActive(false);
+            skin6.SetActive(false);
+            skin7.SetActive(false);
+            skin8.SetActive(false);
+            skin9.SetActive(false);
+            skin10.SetActive(false);
+            skin11.SetActive(false);
+            skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(true);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
+
+            speed = 2f;
+            PlayerPrefs.SetFloat("speed", speed);
+            maxPostemp = 700;
+            PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
+            PlayerPrefs.SetInt("easy", 10);
+            PlayerPrefs.SetInt("medium", 50);
+            PlayerPrefs.SetInt("divider", 20);
+
+            sky.GetComponent<Renderer>().material = sky5;
+            cloud1.GetComponent<Renderer>().material = matCloud5;
+            cloud2.GetComponent<Renderer>().material = matCloud5;
+            cloud3.GetComponent<Renderer>().material = matCloud5;
+            cloud4.GetComponent<Renderer>().material = matCloud5;
+            cloud5.GetComponent<Renderer>().material = matCloud5;
+            cloud6.GetComponent<Renderer>().material = matCloud5;
+            cylinder1.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder2.GetComponent<Renderer>().material = world5Cylinder2;
+            cylinder3.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder4.GetComponent<Renderer>().material = world5Cylinder2;
+            cylinder5.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder6.GetComponent<Renderer>().material = world5Cylinder2;
+        }
+        else if (skinState == 14)
+        {
+            skin1.SetActive(false);
+            skin2.SetActive(false);
+            skin3.SetActive(false);
+            skin4.SetActive(false);
+            skin5.SetActive(false);
+            skin6.SetActive(false);
+            skin7.SetActive(false);
+            skin8.SetActive(false);
+            skin9.SetActive(false);
+            skin10.SetActive(false);
+            skin11.SetActive(false);
+            skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(true);
+            skin16.SetActive(false);
+
+            speed = 2f;
+            PlayerPrefs.SetFloat("speed", speed);
+            maxPostemp = 1000;
+            PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
+            PlayerPrefs.SetInt("easy", 10);
+            PlayerPrefs.SetInt("medium", 25);
+            PlayerPrefs.SetInt("divider", 15);
+
+            sky.GetComponent<Renderer>().material = sky5;
+            cloud1.GetComponent<Renderer>().material = matCloud5;
+            cloud2.GetComponent<Renderer>().material = matCloud5;
+            cloud3.GetComponent<Renderer>().material = matCloud5;
+            cloud4.GetComponent<Renderer>().material = matCloud5;
+            cloud5.GetComponent<Renderer>().material = matCloud5;
+            cloud6.GetComponent<Renderer>().material = matCloud5;
+            cylinder1.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder2.GetComponent<Renderer>().material = world5Cylinder2;
+            cylinder3.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder4.GetComponent<Renderer>().material = world5Cylinder2;
+            cylinder5.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder6.GetComponent<Renderer>().material = world5Cylinder2;
+        }
+        else if (skinState == 15)
+        {
+            skin1.SetActive(false);
+            skin2.SetActive(false);
+            skin3.SetActive(false);
+            skin4.SetActive(false);
+            skin5.SetActive(false);
+            skin6.SetActive(false);
+            skin7.SetActive(false);
+            skin8.SetActive(false);
+            skin9.SetActive(false);
+            skin10.SetActive(false);
+            skin11.SetActive(false);
+            skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(true);
+
+            speed = 2f;
+            PlayerPrefs.SetFloat("speed", speed);
+            maxPostemp = 1000;
+            PlayerPrefs.SetFloat("maxPostemp", maxPostemp);
+            PlayerPrefs.SetInt("easy", 10);
+            PlayerPrefs.SetInt("medium", 15);
+            PlayerPrefs.SetInt("divider", 10);
+
+            sky.GetComponent<Renderer>().material = sky5;
+            cloud1.GetComponent<Renderer>().material = matCloud5;
+            cloud2.GetComponent<Renderer>().material = matCloud5;
+            cloud3.GetComponent<Renderer>().material = matCloud5;
+            cloud4.GetComponent<Renderer>().material = matCloud5;
+            cloud5.GetComponent<Renderer>().material = matCloud5;
+            cloud6.GetComponent<Renderer>().material = matCloud5;
+            cylinder1.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder2.GetComponent<Renderer>().material = world5Cylinder2;
+            cylinder3.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder4.GetComponent<Renderer>().material = world5Cylinder2;
+            cylinder5.GetComponent<Renderer>().material = world5Cylinder1;
+            cylinder6.GetComponent<Renderer>().material = world5Cylinder2;
+        }
+        else
+        {
+            skinState = 0;
+            LoadSkin();
         }
     }
 }
