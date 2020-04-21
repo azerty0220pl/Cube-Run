@@ -150,8 +150,7 @@ public class CharacterController : MonoBehaviour
         level = level + 1;
         levelText = levelObject.GetComponent<Text>();
         levelText.text = "Level " + level;
-        //maxPostemp = maxPostemp * 2.1f;
         //Debug.Log(maxPostemp * 2.25f);
-        PlayerPrefs.SetFloat("speed", PlayerPrefs.GetFloat("speed") * 1.25f);
+        PlayerPrefs.SetFloat("speed", PlayerPrefs.GetFloat("speed") * 1.1f);
     }
 }
