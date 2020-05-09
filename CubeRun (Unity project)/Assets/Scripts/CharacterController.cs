@@ -34,6 +34,7 @@ public class CharacterController : MonoBehaviour
     public GameObject ArcadeEnd;
     public GameObject levelObject;
     public GameObject shopScript;
+    public GameObject levelChanger;
     Text levelText;
     int level;
     //int speed;
@@ -47,18 +48,28 @@ public class CharacterController : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = targetFrameRate;
         PlayerPrefs.SetInt("state", 1);
+
+        LoadLevel();
+
         tipState = PlayerPrefs.GetInt("tip");
         if (tipState == 0)
         {
             tip.SetActive(true);
             tip2.SetActive(false);
+            PlayerPrefs.SetInt("tip", 1);
+        }
+        else if (tipState == 1)
+        {
+            tip.SetActive(false);
+            tip2.SetActive(true);
+            PlayerPrefs.SetInt("tip", 2);
         }
         else
         {
             tip.SetActive(false);
-            tip2.SetActive(true);
+            tip2.SetActive(false);
         }
-        if (tip.activeInHierarchy == false) PlayerPrefs.SetInt("tip", 1);
+
         postemp = bar.GetComponent<Image>();
         maxPostemp = 600;
         transform.position = new Vector3(0f, -20f, 39f);
@@ -97,6 +108,16 @@ public class CharacterController : MonoBehaviour
             arcadeResult = arcadeText.GetComponent<Text>();
             arcadeMoney = Mathf.RoundToInt(PlayerPrefs.GetFloat("realPoints") / PlayerPrefs.GetInt("divider"));
             arcadeResult.text = "Points: " + PlayerPrefs.GetFloat("realPoints") + "\n" + "Your reward: " + arcadeMoney;
+            Debug.Log(PlayerPrefs.GetFloat("realPoints"));
+            if (PlayerPrefs.GetFloat("realPoints") > 1500f)
+            {
+                PlayerPrefs.SetInt("difficulty", PlayerPrefs.GetInt("difficulty") + 1);
+                Debug.Log("+ 1 level");
+                Debug.Log(PlayerPrefs.GetInt("difficulty"));
+            }
+            if (PlayerPrefs.GetFloat("realPoints") < 500 && PlayerPrefs.GetInt("difficulty") > 1)
+                PlayerPrefs.SetInt("difficulty", PlayerPrefs.GetInt("difficulty") - 1);
+            LoadLevel();
             coins = coins + arcadeMoney;
             PlayerPrefs.SetInt("arcadeMoney", arcadeMoney);
             PlayerPrefs.SetInt("coins", coins);
@@ -104,16 +125,25 @@ public class CharacterController : MonoBehaviour
             coinNumber.text = "" + coins;
             PlayerPrefs.SetInt("state", 0);
             PlayerPrefs.SetInt("state", 1);
+            tipState = PlayerPrefs.GetInt("tip");
+            if (tipState == 0)
+            {
+                tip.SetActive(true);
+                tip2.SetActive(false);
+                PlayerPrefs.SetInt("tip", 1);
+            }
+            else if (tipState == 1)
+            {
+                tip.SetActive(false);
+                tip2.SetActive(true);
+                PlayerPrefs.SetInt("tip", 2);
+            }
+            else
+            {
+                tip.SetActive(false);
+                tip2.SetActive(false);
+            }
         }
-
-        tipState = PlayerPrefs.GetInt("tip");
-        if (tipState == 0)
-        {
-            tip.SetActive(true);
-        }
-        else
-            tip.SetActive(false);
-        if (tip.activeInHierarchy == false) PlayerPrefs.SetInt("tip", 1);
         //maxPostemp = PlayerPrefs.GetFloat("maxPostemp");
         coins = PlayerPrefs.GetInt("coins");
         coinNumber = coinText.GetComponent<Text>();
@@ -124,8 +154,6 @@ public class CharacterController : MonoBehaviour
             points = PlayerPrefs.GetFloat("points");
             points = points + 1;
             PlayerPrefs.SetFloat("points", points);
-            state = 1;
-            PlayerPrefs.SetInt("state", state);
             pointsCounter = pointsText.GetComponent<Text>();
             pointsCounter.text = "" + points;
             if (points >= maxPostemp && trigger.activeInHierarchy == true)
@@ -152,5 +180,78 @@ public class CharacterController : MonoBehaviour
         levelText.text = "Level " + level;
         //Debug.Log(maxPostemp * 2.25f);
         PlayerPrefs.SetFloat("speed", PlayerPrefs.GetFloat("speed") * 1.1f);
+    }
+
+    void LoadLevel()
+    {
+        if (PlayerPrefs.GetInt("difficulty") == 2)
+        {
+            levelChanger.GetComponent<LevelChanger>().level2();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 3)
+        {
+            levelChanger.GetComponent<LevelChanger>().level3();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 4)
+        {
+            levelChanger.GetComponent<LevelChanger>().level4();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 5)
+        {
+            levelChanger.GetComponent<LevelChanger>().level5();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 6)
+        {
+            levelChanger.GetComponent<LevelChanger>().level6();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 7)
+        {
+            levelChanger.GetComponent<LevelChanger>().level7();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 8)
+        {
+            levelChanger.GetComponent<LevelChanger>().level8();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 1)
+        {
+            levelChanger.GetComponent<LevelChanger>().level1();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 9)
+        {
+            levelChanger.GetComponent<LevelChanger>().level9();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 10)
+        {
+            levelChanger.GetComponent<LevelChanger>().level10();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 11)
+        {
+            levelChanger.GetComponent<LevelChanger>().level11();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 12)
+        {
+            levelChanger.GetComponent<LevelChanger>().level12();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 13)
+        {
+            levelChanger.GetComponent<LevelChanger>().level13();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 14)
+        {
+            levelChanger.GetComponent<LevelChanger>().level14();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 15)
+        {
+            levelChanger.GetComponent<LevelChanger>().level15();
+        }
+        else if (PlayerPrefs.GetInt("difficulty") == 16)
+        {
+            levelChanger.GetComponent<LevelChanger>().level16();
+        }
+        else
+        {
+            levelChanger.GetComponent<LevelChanger>().level10();
+            PlayerPrefs.SetInt("difficulty", 10);
+        }
     }
 }

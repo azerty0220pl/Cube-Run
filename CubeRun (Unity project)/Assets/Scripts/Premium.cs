@@ -125,4 +125,10 @@ using UnityEngine.Purchasing;
             // this reason with the user to guide their troubleshooting actions.
             Debug.Log(string.Format("OnPurchaseFailed: FAIL. Product: '{0}', PurchaseFailureReason: {1}", product.definition.storeSpecificId, failureReason));
         }
+
+    public void buy()
+    {
+        premium = 1;
+        PlayerPrefs.SetInt("premium", premium);
+    }
     }

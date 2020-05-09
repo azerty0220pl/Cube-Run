@@ -7,6 +7,7 @@ public class MusicController : MonoBehaviour
     public GameObject ButtonOn;
     public GameObject ButtonOff;
     public GameObject musicObject;
+    public GameObject explosionObject;
     
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class MusicController : MonoBehaviour
         ButtonOn.SetActive(true);
         ButtonOff.SetActive(false);
         musicObject.SetActive(true);
+        explosionObject.SetActive(true);
         PlayerPrefs.SetInt("musicState", 0);
     }
 
@@ -28,6 +30,7 @@ public class MusicController : MonoBehaviour
         ButtonOn.SetActive(false);
         ButtonOff.SetActive(true);
         musicObject.SetActive(false);
+        explosionObject.SetActive(false);
         PlayerPrefs.SetInt("musicState", 1);
     }
 

@@ -18,6 +18,10 @@ public class MoveLeft : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     void Update()
     {
         character.transform.position = new Vector3(0f, -20f, 43.9f);
+        if (Input.GetKey(KeyCode.A))
+        {
+            cylinder.transform.Rotate(0, -5f, 0, Space.World);
+        }
 
         if (!ispressed)
             return;

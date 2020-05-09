@@ -61,6 +61,10 @@ public class ShopManager : MonoBehaviour
     public GameObject skin14;
     public GameObject skin15;
     public GameObject skin16;
+    public GameObject skin17;
+    public GameObject skin18;
+    public GameObject skin19;
+    public GameObject skin20;
 
     public GameObject noMoney;
 
@@ -79,6 +83,10 @@ public class ShopManager : MonoBehaviour
     int prize14;
     int prize15;
     int prize16;
+    int prize17;
+    int prize18;
+    int prize19;
+    int prize20;
 
     int skinState;
     int maxSkin;
@@ -91,18 +99,22 @@ public class ShopManager : MonoBehaviour
         prize2 = 50;
         prize3 = 100;
         prize4 = 150;
-        prize5 = 300;
-        prize6 = 400;
-        prize7 = 500;
-        prize8 = 600;
-        prize9 = 700;
-        prize10 = 1000;
-        prize11 = 1250;
-        prize12 = 2000;
-        prize13 = 4000;
-        prize14 = 6000;
-        prize15 = 10000;
-        prize16 = 100000;
+        prize5 = 200;
+        prize6 = 300;
+        prize7 = 400;
+        prize8 = 500;
+        prize9 = 600;
+        prize10 = 700;
+        prize11 = 800;
+        prize12 = 900;
+        prize13 = 1000;
+        prize14 = 1250;
+        prize15 = 1500;
+        prize16 = 1750;
+        prize17 = 2000;
+        prize18 = 2500;
+        prize19 = 3000;
+        prize20 = 4000;
 
         skinState = PlayerPrefs.GetInt("skinState");
         maxSkin = PlayerPrefs.GetInt("maxSkin");
@@ -416,6 +428,78 @@ public class ShopManager : MonoBehaviour
                 moneyText.text = "You need " + left + " coins more.";
             }
         }
+        else if (maxSkin == 15)
+        {
+            if (coins >= prize17 || PlayerPrefs.GetInt("premium") == 1)
+            {
+                maxSkin = maxSkin + 1;
+                PlayerPrefs.SetInt("maxSkin", maxSkin);
+                moveRight();
+                coins = coins - prize17;
+                PlayerPrefs.SetInt("coins", coins);
+            }
+            else
+            {
+                noMoney.SetActive(true);
+                moneyText = noMoneyText.GetComponent<Text>();
+                left = prize17 - coins;
+                moneyText.text = "You need " + left + " coins more.";
+            }
+        }
+        else if (maxSkin == 16)
+        {
+            if (coins >= prize18 || PlayerPrefs.GetInt("premium") == 1)
+            {
+                maxSkin = maxSkin + 1;
+                PlayerPrefs.SetInt("maxSkin", maxSkin);
+                moveRight();
+                coins = coins - prize18;
+                PlayerPrefs.SetInt("coins", coins);
+            }
+            else
+            {
+                noMoney.SetActive(true);
+                moneyText = noMoneyText.GetComponent<Text>();
+                left = prize18 - coins;
+                moneyText.text = "You need " + left + " coins more.";
+            }
+        }
+        else if (maxSkin == 17)
+        {
+            if (coins >= prize19 || PlayerPrefs.GetInt("premium") == 1)
+            {
+                maxSkin = maxSkin + 1;
+                PlayerPrefs.SetInt("maxSkin", maxSkin);
+                moveRight();
+                coins = coins - prize19;
+                PlayerPrefs.SetInt("coins", coins);
+            }
+            else
+            {
+                noMoney.SetActive(true);
+                moneyText = noMoneyText.GetComponent<Text>();
+                left = prize19 - coins;
+                moneyText.text = "You need " + left + " coins more.";
+            }
+        }
+        else if (maxSkin == 18)
+        {
+            if (coins >= prize20 || PlayerPrefs.GetInt("premium") == 1)
+            {
+                maxSkin = maxSkin + 1;
+                PlayerPrefs.SetInt("maxSkin", maxSkin);
+                moveRight();
+                coins = coins - prize20;
+                PlayerPrefs.SetInt("coins", coins);
+            }
+            else
+            {
+                noMoney.SetActive(true);
+                moneyText = noMoneyText.GetComponent<Text>();
+                left = prize20 - coins;
+                moneyText.text = "You need " + left + " coins more.";
+            }
+        }
     }
 
     public void LoadSkin()
@@ -438,6 +522,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 1)
         {
@@ -457,6 +545,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 2)
         {
@@ -476,6 +568,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 3)
         {
@@ -495,6 +591,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 4)
         {
@@ -514,6 +614,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 5)
         {
@@ -533,6 +637,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 6)
         {
@@ -552,6 +660,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 7)
         {
@@ -571,9 +683,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
-
-            
-
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 8)
         {
@@ -593,6 +706,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 9)
         {
@@ -612,6 +729,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 10)
         {
@@ -631,6 +752,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 11)
         {
@@ -650,6 +775,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 12)
         {
@@ -669,6 +798,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 13)
         {
@@ -688,6 +821,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(true);
             skin15.SetActive(false);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 14)
         {
@@ -707,6 +844,10 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(true);
             skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
         }
         else if (skinState == 15)
         {
@@ -726,6 +867,102 @@ public class ShopManager : MonoBehaviour
             skin14.SetActive(false);
             skin15.SetActive(false);
             skin16.SetActive(true);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
+        }
+        else if (skinState == 16)
+        {
+            skin1.SetActive(false);
+            skin2.SetActive(false);
+            skin3.SetActive(false);
+            skin4.SetActive(false);
+            skin5.SetActive(false);
+            skin6.SetActive(false);
+            skin7.SetActive(false);
+            skin8.SetActive(false);
+            skin9.SetActive(false);
+            skin10.SetActive(false);
+            skin11.SetActive(false);
+            skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
+            skin17.SetActive(true);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
+        }
+        else if (skinState == 17)
+        {
+            skin1.SetActive(false);
+            skin2.SetActive(false);
+            skin3.SetActive(false);
+            skin4.SetActive(false);
+            skin5.SetActive(false);
+            skin6.SetActive(false);
+            skin7.SetActive(false);
+            skin8.SetActive(false);
+            skin9.SetActive(false);
+            skin10.SetActive(false);
+            skin11.SetActive(false);
+            skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(true);
+            skin19.SetActive(false);
+            skin20.SetActive(false);
+        }
+        else if (skinState == 18)
+        {
+            skin1.SetActive(false);
+            skin2.SetActive(false);
+            skin3.SetActive(false);
+            skin4.SetActive(false);
+            skin5.SetActive(false);
+            skin6.SetActive(false);
+            skin7.SetActive(false);
+            skin8.SetActive(false);
+            skin9.SetActive(false);
+            skin10.SetActive(false);
+            skin11.SetActive(false);
+            skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(true);
+            skin20.SetActive(false);
+        }
+        else if (skinState == 19)
+        {
+            skin1.SetActive(false);
+            skin2.SetActive(false);
+            skin3.SetActive(false);
+            skin4.SetActive(false);
+            skin5.SetActive(false);
+            skin6.SetActive(false);
+            skin7.SetActive(false);
+            skin8.SetActive(false);
+            skin9.SetActive(false);
+            skin10.SetActive(false);
+            skin11.SetActive(false);
+            skin12.SetActive(false);
+            skin13.SetActive(false);
+            skin14.SetActive(false);
+            skin15.SetActive(false);
+            skin16.SetActive(false);
+            skin17.SetActive(false);
+            skin18.SetActive(false);
+            skin19.SetActive(false);
+            skin20.SetActive(true);
         }
         else
         {

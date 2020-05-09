@@ -121,7 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.6
+  bundleVersion: 3.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -167,7 +167,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.azerty0220pl.CubeRun
   buildNumber: {}
-  AndroidBundleVersionCode: 9
+  AndroidBundleVersionCode: 11
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1
@@ -280,7 +280,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: e8cbc1e673e36574c9273b9c1292ae34, type: 3}
+      m_Icon: {fileID: 2800000, guid: db93535ade55e7e4dac94703e19fea04, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -458,7 +458,9 @@ PlayerSettings:
     Android: 1
     iPhone: 1
     tvOS: 1
-  m_BuildTargetGroupLightmapEncodingQuality: []
+  m_BuildTargetGroupLightmapEncodingQuality:
+  - m_BuildTarget: Android
+    m_EncodingQuality: 1
   m_BuildTargetGroupLightmapSettings: []
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
@@ -689,7 +691,11 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: CROSS_PLATFORM_INPUT
+    4: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    7: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    14: MOBILE_INPUT
   platformArchitecture: {}
   scriptingBackend:
     Android: 1

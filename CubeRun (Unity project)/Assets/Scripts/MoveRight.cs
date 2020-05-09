@@ -17,6 +17,10 @@ public class MoveRight : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.D))
+        {
+            cylinder.transform.Rotate(0, 5f, 0, Space.World);
+        }
         if (!ispressed)
             return;
         // DO SOMETHING HERE
