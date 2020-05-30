@@ -29,12 +29,12 @@ public class SwipeController : MonoBehaviour
             if (touch.phase == TouchPhase.Moved)
             {
                 touchPosition2 = moving = touch.position.x;
-                moving = touchPosition2 - touchPosition1 + cylinder.transform.rotation.y;
-                moving = moving / 2f;
-                moving = cylinder.transform.rotation.y + moving;
-                //moving = moving / 3f;
+                moving = touchPosition2 - touchPosition1;
+                //moving = moving + cylinder.transform.rotation.y;
+                moving = moving / 4f;
                 // moving = Mathf.RoundToInt(moving);
-                cylinder.transform.eulerAngles = new Vector3(0f, moving, 0f);
+                cylinder.transform.Rotate(0f, moving, 0f, Space.World);
+                touchPosition1 = touchPosition2;
             }
         }
         else if (Input.touchCount == 0)

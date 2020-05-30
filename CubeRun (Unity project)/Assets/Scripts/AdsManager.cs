@@ -18,6 +18,23 @@ public class AdsManager : MonoBehaviour
     private void Start()
     {
         Advertisement.Initialize("3254184", false);
+
+        if (PlayerPrefs.GetInt("premium") == 0)
+        {
+            StartCoroutine(ShowBannerWhenReady());
+        } 
+    }
+
+    IEnumerator ShowBannerWhenReady()
+    {
+        while (!Advertisement.IsReady("banner"))
+        {
+            yield return new WaitForSeconds(0.5f);
+            Debug.Log("Waiting");
+        }
+        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
+        Advertisement.Banner.Show("banner");
+        Debug.Log("Showing");
     }
 
     public void rewardedVideo()

@@ -106,7 +106,7 @@ namespace UnityEditor.Purchasing
 				}
 
 				if (GUILayout.Button("IAP Catalog...")) {
-					//ProductCatalogEditor.ShowWindow();
+					ProductCatalogEditor.ShowWindow();
 				}
 			}
 
