@@ -21,6 +21,7 @@ public class GameOver : MonoBehaviour
             Left.GetComponent<MoveLeft>().ispressed = false;
             PlayerPrefs.SetInt("state", 0);
             PlayerPrefs.SetFloat("realPoints", PlayerPrefs.GetFloat("points"));
+            TinySauce.OnGameFinished(PlayerPrefs.GetFloat("realPoints"));
             characterFunction();
         }
     }

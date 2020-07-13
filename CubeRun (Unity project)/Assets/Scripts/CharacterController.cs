@@ -254,4 +254,9 @@ public class CharacterController : MonoBehaviour
             PlayerPrefs.SetInt("difficulty", 10);
         }
     }
+
+    public void GameStarted()
+    {
+        TinySauce.OnGameStarted();
+    }
 }
