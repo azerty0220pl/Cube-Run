@@ -5094,7 +5094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &548295679
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6286,7 +6286,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5b727aeca3c0b364b8ab302a455e48aa, type: 2}
+  - {fileID: 2100000, guid: 236b56ef4aa1b6245986b2eed040e5e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13246,7 +13246,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5b727aeca3c0b364b8ab302a455e48aa, type: 2}
+  - {fileID: 2100000, guid: 9b9f730ec390deb4ca1ed37b149c0777, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17099,7 +17099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1622643280
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17613,7 +17613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1684791544
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20926,7 +20926,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068342594}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2471f43dbb959d24a9cc380bae2a4fb0, type: 3}
   m_Name: 
@@ -21476,7 +21476,7 @@ PrefabInstance:
     - target: {fileID: 6017251697305623400, guid: 4f7830168c21f7b44af4af36dc71cd5f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6017251697342367517, guid: 4f7830168c21f7b44af4af36dc71cd5f,
         type: 3}
