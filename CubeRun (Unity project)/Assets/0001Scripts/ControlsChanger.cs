@@ -17,9 +17,9 @@ public class ControlsChanger : MonoBehaviour
         state = PlayerPrefs.GetInt("controlState");
 
         if (state == 0)
-            SwipeChange();
-        if (state == 1)
             TapChange();
+        if (state == 1)
+            SwipeChange();
     }
 
     public void SwipeChange()
